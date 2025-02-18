@@ -45,29 +45,24 @@ public class FirstScreen implements Screen {
         boolean isLeftPressed = Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.LEFT);
         boolean isRightPressed = Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.RIGHT);
 
-        rocket.update(delta, isUpPressed); // Update vertical movement
-        rocket.moveHorizontal(delta, isLeftPressed, isRightPressed); // Update horizontal movement
+        rocket.update(delta, isUpPressed); 
+        rocket.moveHorizontal(delta, isLeftPressed, isRightPressed); 
 
-        // Update the camera's position to follow the rocket (only vertically)
-        float cameraX = camera.viewportWidth / 2; // Lock the camera's X position
-        float cameraY = rocket.getY() + 100 + rocket.getHeight() / 2; // Follow the rocket's Y position
+        float cameraX = camera.viewportWidth / 2; 
+        float cameraY = rocket.getY() + 100 + rocket.getHeight() / 2; 
         camera.position.set(cameraX, cameraY, 0);
         camera.update();
 
-        // Begin drawing
+        
         spriteBatch.begin();
 
-        // Draw the background without the camera (fixed position)
-        background.setPosition(0, 0); // Background stays at (0, 0)
+        background.setPosition(0, 0); 
         background.draw(spriteBatch);
 
         // Apply the camera to the SpriteBatch for the rocket and other objects
         spriteBatch.setProjectionMatrix(camera.combined);
 
-        // Draw the rocket (moves with the camera)
         rocket.draw(spriteBatch);
-
-        // End drawing
         spriteBatch.end();
     }
 

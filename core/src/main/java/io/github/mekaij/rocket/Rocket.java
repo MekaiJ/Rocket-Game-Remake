@@ -5,36 +5,35 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Rocket extends Sprite {
-    private float velocityY = 0; // Vertical velocity
-    private float gravity = -700; // Gravity force
-    private float lift = 300; // Lift force
+    private float velocityY = 0; 
+    private float gravity = -700; 
+    private float lift = 300; 
 
     public Rocket() {
-        super(new Texture("rocket.png")); // Initialize the sprite with the rocket texture
-        setPosition(175, 0); // Set initial position
-        setSize(128, 128); // Set size
+        super(new Texture("rocket.png")); 
+        setPosition(175, 0); 
+        setSize(128, 128); 
     }
 
     public void update(float delta, boolean isUpPressed) {
-        // Apply gravity
+        
         velocityY += gravity * delta;
 
         // Apply lift if the up arrow is pressed
         if (isUpPressed) {
-            velocityY = lift; // Instant lift
+            velocityY = lift;
         }
 
         // Update position based on velocity
         setY(getY() + velocityY * delta);
 
-        // Clamp velocity to prevent excessive speed
         float maxVelocity = 1000;
         velocityY = Math.max(-maxVelocity, Math.min(maxVelocity, velocityY));
 
-        // Keep within screen bounds
+        
         if (getY() < 0) {
             setY(0);
-            velocityY = 0; // Stop falling when hitting the ground
+            velocityY = 0;
         }
     }
 
