@@ -14,12 +14,16 @@ public class FirstScreen implements Screen {
     private Texture backgroundTexture;
     private Sprite background;
 
-    private OrthographicCamera camera; // Camera to follow the rocket
+    private OrthographicCamera camera;
 
+
+    /*
+     * Initialize and set up all components for the screen
+     */
     @Override
     public void show() {
         spriteBatch = new SpriteBatch();
-        rocket = new Rocket(); // Initialize the rocket
+        rocket = new Rocket();
 
         // Load the background texture
         backgroundTexture = new Texture(Gdx.files.internal("cloudsbackground.jpg"));
@@ -34,6 +38,9 @@ public class FirstScreen implements Screen {
         camera.update();
     }
 
+    /*
+     * Main game loop
+     */
     @Override
     public void render(float delta) {
         // Clear the screen
@@ -46,7 +53,7 @@ public class FirstScreen implements Screen {
         boolean isRightPressed = Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.RIGHT);
 
         rocket.update(delta, isUpPressed); 
-        rocket.moveHorizontal(delta, isLeftPressed, isRightPressed); 
+        rocket.moveHorizontal(delta, isLeftPressed, isRightPressed);
 
         float cameraX = camera.viewportWidth / 2; 
         float cameraY = rocket.getY() + 100 + rocket.getHeight() / 2; 
@@ -65,7 +72,7 @@ public class FirstScreen implements Screen {
         rocket.draw(spriteBatch);
         spriteBatch.end();
     }
-
+    
     @Override
     public void resize(int width, int height) {
         // Update the camera's viewport when the screen is resized

@@ -15,28 +15,30 @@ public class Rocket extends Sprite {
         setSize(128, 128); 
     }
 
+    /*
+     * Used for physics and upward movement
+     */
     public void update(float delta, boolean isUpPressed) {
-        
         velocityY += gravity * delta;
 
         // Apply lift if the up arrow is pressed
         if (isUpPressed) {
             velocityY = lift;
         }
-
         // Update position based on velocity
         setY(getY() + velocityY * delta);
 
         float maxVelocity = 1000;
         velocityY = Math.max(-maxVelocity, Math.min(maxVelocity, velocityY));
-
-        
         if (getY() < 0) {
             setY(0);
             velocityY = 0;
         }
     }
 
+    /*
+     * Used for horizontal movement
+     */
     public void moveHorizontal(float delta, boolean isLeftPressed, boolean isRightPressed) {
         float horizontalSpeed = 300; // Horizontal movement speed
         if (isLeftPressed) {
