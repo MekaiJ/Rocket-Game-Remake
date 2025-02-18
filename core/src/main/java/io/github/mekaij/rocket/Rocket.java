@@ -9,6 +9,7 @@ public class Rocket extends Sprite {
     private float gravity = -700; 
     private float lift = 300; 
 
+    //TODO: Look into 2d bullet physics for shooting enemies
     public Rocket() {
         super(new Texture("rocket.png")); 
         setPosition(175, 0); 

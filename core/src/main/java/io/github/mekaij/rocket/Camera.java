@@ -11,5 +11,6 @@ public class Camera extends OrthographicCamera {
         this.width = width;
         this.height = height;
     }
+    
 
 }

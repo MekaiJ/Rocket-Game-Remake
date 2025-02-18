@@ -14,12 +14,13 @@ public class FirstScreen implements Screen {
     private Texture backgroundTexture;
     private Sprite background;
 
-    private OrthographicCamera camera;
+    private Camera camera;
 
 
     /*
      * Initialize and set up all components for the screen
      */
+    //TODO: Tilemapping for background
     @Override
     public void show() {
         spriteBatch = new SpriteBatch();
@@ -33,7 +34,7 @@ public class FirstScreen implements Screen {
         // Initialize the camera
         float viewportWidth = Gdx.graphics.getWidth();
         float viewportHeight = Gdx.graphics.getHeight();
-        camera = new OrthographicCamera(viewportWidth, viewportHeight);
+        camera = new Camera(viewportWidth, viewportHeight);
         camera.position.set(viewportWidth / 2, viewportHeight / 2, 0); // Center the camera initially
         camera.update();
     }
