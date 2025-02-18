@@ -39,7 +39,7 @@ public class Rocket extends Sprite {
     }
 
     public void moveHorizontal(float delta, boolean isLeftPressed, boolean isRightPressed) {
-        float horizontalSpeed = 200; // Horizontal movement speed
+        float horizontalSpeed = 300; // Horizontal movement speed
         if (isLeftPressed) {
             setX(getX() - horizontalSpeed * delta); // Move left
         }
