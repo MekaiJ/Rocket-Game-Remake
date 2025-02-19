@@ -2,8 +2,8 @@ package io.github.mekaij.rocket;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,6 +14,8 @@ public class FirstScreen implements Screen {
     private Texture backgroundTexture;
     private Sprite background;
 
+    private Sound bgmusic;
+
     private Camera camera;
 
 
@@ -23,6 +25,11 @@ public class FirstScreen implements Screen {
     //TODO: Tilemapping for background
     @Override
     public void show() {
+        //music credit to my 8 year old brother
+        bgmusic = Gdx.audio.newSound(Gdx.files.internal("music.mp3"));
+        bgmusic.play();
+        bgmusic.setLooping(0, true);
+
         spriteBatch = new SpriteBatch();
         rocket = new Rocket();
 
@@ -99,6 +106,7 @@ public class FirstScreen implements Screen {
 
     @Override
     public void dispose() {
+        bgmusic.dispose();
         rocket.dispose();
         spriteBatch.dispose();
         backgroundTexture.dispose();
