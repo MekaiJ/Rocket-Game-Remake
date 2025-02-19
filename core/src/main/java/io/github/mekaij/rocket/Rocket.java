@@ -3,6 +3,7 @@ package io.github.mekaij.rocket;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.Array;
 
 public class Rocket extends Sprite {
     private float velocityY = 0; 
